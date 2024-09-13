@@ -37,6 +37,18 @@
                 {
                     continue;
                 }
+                Console.WriteLine("Увеличить скорость?");
+                answer = Console.ReadLine();
+                if (answer == "Да")
+                {
+                    myCar.Speed = 65;
+                    for (int j = 0; j <= 20; j++)
+                    {
+
+                        myCar.Speedup(5);
+                        myCar.PrintState();
+                    }
+                }
                 else if (answer2 == "Stop")
                 {
                     break;
