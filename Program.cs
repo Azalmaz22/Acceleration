@@ -2,18 +2,28 @@
 {
     internal class Program
     {
-        //public int Number;
+       
+
         static void Main(string[] args)
         {
+            var myCar = new Car();
+            myCar.Speed = 0;
+            Console.WriteLine("Racing!");
+
+            Console.WriteLine("Enter you car name");
+
+            var answer1 = Console.ReadLine();
+            if (answer1 == "BMW")
+            {
+                myCar.Name = answer1;
+                
+                
+            }
+            Console.WriteLine("Current speed is GMPH");
             while (true)
             {
-                Console.WriteLine("Riding back");
-                var myCar = new Car();
-                //myCar.PrintState(); 
-                myCar.Name = "BMW";
-                //myCar.PrintState();
-                myCar.Speed = 0;
-                Console.WriteLine("Введите напр.движения");
+
+                Console.WriteLine("Enter direction");
                 string answer = Console.ReadLine();
                 var number = int.Parse(answer);
 
@@ -28,34 +38,25 @@
                     {
                         myCar.Speedup(5);
                         myCar.PrintState();
+                        
                     }
-
                 }
-                Console.WriteLine("Switch transmission?");
+                Console.WriteLine("Do you want to stop? yes/no");
                 var answer2 = Console.ReadLine();
-                if (answer2 == "Ok")
+                if (answer2 == "no")
                 {
+                    myCar.Speed = myCar.Speed ;
+                    
                     continue;
+                   
                 }
-                Console.WriteLine("Увеличить скорость?");
-                answer = Console.ReadLine();
-                if (answer == "Да")
+                else if (answer2 == "yes")
                 {
-                    myCar.Speed = 65;
-                    for (int j = 0; j <= 20; j++)
-                    {
+                    Console.WriteLine("Goodbye");
 
-                        myCar.Speedup(5);
-                        myCar.PrintState();
-                    }
                 }
-                else if (answer2 == "Stop")
-                {
-                    break;
-                }
-                
+                break;
             }
-            Console.WriteLine("Goodbye");
         }
     }
     public class Car
@@ -68,10 +69,10 @@
             Console.WriteLine("{0} is going {1} MPH.", Name, Speed);
         }
 
-        public void Speedup(int delta)
+        public void Speedup(int delta )
         {
            Speed += delta;
-           
+            
         }   
     }
 }
