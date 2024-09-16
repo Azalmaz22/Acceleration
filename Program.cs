@@ -6,7 +6,7 @@
 
         static void Main(string[] args)
         {
-            //var myCar = new  Car("BMW", 0);
+           
          
            
             Console.WriteLine("Racing!");
@@ -14,9 +14,10 @@
             Console.WriteLine("Enter you car name");
 
             var CarName = Console.ReadLine();
-            var myCar = new Car();
-            CarName = "BMW";
-            myCar.Name = CarName;
+            var myCar = new Car("BMW", 0);
+            //var myCar = new Car();
+            //CarName = "BMW";
+            //myCar.Name = CarName;
 
             myCar.Speed = 0;
             Console.WriteLine("Current speed is GMPH");
@@ -64,11 +65,11 @@
        
         public string Name;
         public int Speed;
-        //public Car(string Name, int Speed)
-       // { 
-          //  Name = "BMW";
-            //Speed = 0;
-        //}
+        public Car(string Name, int Speed)
+        { 
+            Name = "BMW";
+            Speed = 0;
+        }
        
         public void PrintState() 
         {
