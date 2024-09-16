@@ -15,12 +15,14 @@
 
             var CarName = Console.ReadLine();
             var myCar = new Car();
-            myCar.Name = "BMW";
+            CarName = "BMW";
+            myCar.Name = CarName;
+
             myCar.Speed = 0;
             Console.WriteLine("Current speed is GMPH");
             while (true)
             {
-              //  myCar.Speed = 0;
+              
                 Console.WriteLine("Enter direction");
                 string answer = Console.ReadLine();
                 var number = int.Parse(answer);
@@ -62,7 +64,7 @@
        
         public string Name;
         public int Speed;
-        //public Car(string Name)//, int Speed)
+        //public Car(string Name, int Speed)
        // { 
           //  Name = "BMW";
             //Speed = 0;
