@@ -6,20 +6,21 @@
 
         static void Main(string[] args)
         {
-           
-         
-           
-            Console.WriteLine("Racing!");
 
+
+           // var myCar = new Car();
+            Console.WriteLine("Racing!");
+            //var myCar = new Car();
             Console.WriteLine("Enter you car name");
 
-            var CarName = Console.ReadLine();
-            var myCar = new Car("BMW", 0);
+            var CarName = Console.ReadLine(); 
+
+            var myCar = new Car();
             //var myCar = new Car();
             //CarName = "BMW";
-            //myCar.Name = CarName;
+            myCar.Name = CarName;
 
-            myCar.Speed = 0;
+           //myCar.Speed = 0;
             Console.WriteLine("Current speed is GMPH");
             while (true)
             {
@@ -65,11 +66,13 @@
        
         public string Name;
         public int Speed;
-        public Car(string Name, int Speed)
+        public Car() 
         { 
-            Name = "BMW";
-            Speed = 0;
+
         }
+        
+           
+       
        
         public void PrintState() 
         {
