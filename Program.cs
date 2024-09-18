@@ -83,6 +83,7 @@ namespace Acceleration
         public void PrintState() 
         {
             Console.WriteLine("{0} is going {1} MPH.", Name, Speed);
+            Console.WriteLine("payload{0}kg is power{1}kW.", Payload, Power);
         }
 
         public void Speedup(int delta )
