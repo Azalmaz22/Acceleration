@@ -56,7 +56,7 @@ namespace Acceleration
                 }
                 else if (answer2 == "yes")
                 {
-                    Console.WriteLine("BMW is going 0 MPH");
+                    Console.WriteLine(CarName + "Speed = 0");
                     Console.WriteLine("Goodbye");
 
                 }
