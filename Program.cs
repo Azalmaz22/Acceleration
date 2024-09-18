@@ -1,4 +1,6 @@
-﻿namespace Acceleration
+﻿using System.Runtime.CompilerServices;
+
+namespace Acceleration
 {
     internal class Program
     {
@@ -8,19 +10,20 @@
         {
 
 
-           // var myCar = new Car();
+          
             Console.WriteLine("Racing!");
-            //var myCar = new Car();
-            Console.WriteLine("Enter you car name");
 
-            var CarName = Console.ReadLine(); 
 
-            var myCar = new Car();
-            //var myCar = new Car();
-            //CarName = "BMW";
-            myCar.Name = CarName;
 
-           //myCar.Speed = 0;
+            Console.WriteLine("Enter you car name, payload, power");
+            
+            var CarName = Console.ReadLine();
+            var CarPayload = Console.ReadLine();
+            var CarPower = Console.ReadLine();
+            var myCar = new Car(CarName, CarPayload, CarPower);
+         
+           
+
             Console.WriteLine("Current speed is GMPH");
             while (true)
             {
@@ -65,15 +68,18 @@
     {
        
         public string Name;
+        public string Payload;
+        public string Power;
         public int Speed;
-        public Car() 
-        { 
-
+       
+        public Car(string name, string payload, string power)
+        {
+            Name = name;
+            Payload = payload;
+            Power = power;
         }
-        
-           
-       
-       
+     
+     
         public void PrintState() 
         {
             Console.WriteLine("{0} is going {1} MPH.", Name, Speed);
