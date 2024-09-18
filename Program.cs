@@ -18,8 +18,11 @@ namespace Acceleration
             Console.WriteLine("Enter you car name, payload, power");
             
             var CarName = Console.ReadLine();
-            var CarPayload = Console.ReadLine();
-            var CarPower = Console.ReadLine();
+            var value = Console.ReadLine();
+            var CarPayload = int.Parse(value);
+            var value2 = Console.ReadLine();
+            var CarPower = int.Parse(value2);
+
             var myCar = new Car(CarName, CarPayload, CarPower);
          
            
@@ -68,11 +71,11 @@ namespace Acceleration
     {
        
         public string Name;
-        public string Payload;
-        public string Power;
+        public int Payload;
+        public int Power;
         public int Speed;
        
-        public Car(string name, string payload, string power)
+        public Car(string name, int payload, int power)
         {
             Name = name;
             Payload = payload;
