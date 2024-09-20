@@ -15,7 +15,7 @@ namespace Acceleration
 
 
 
-            Console.WriteLine("Enter you car name, payload, power,speed");
+            Console.WriteLine("Enter you car name, payload, power,speed, speedMax");
             
             var CarName = Console.ReadLine();
             var value = Console.ReadLine();
@@ -24,9 +24,11 @@ namespace Acceleration
             var CarPower = int.Parse(value2);
             var value3 = Console.ReadLine();
             var CarSpeed = int.Parse(value3);
+            var value4 = Console.ReadLine();
+            var CarSpeedMax = int.Parse(value4);
             
 
-            var myCar = new Car(CarName, CarPayload, CarPower, CarSpeed);
+            var myCar = new Car(CarName, CarPayload, CarPower, CarSpeed, CarSpeedMax);
          
            
 
@@ -79,30 +81,32 @@ namespace Acceleration
         public int Payload;
         public int Power;
         public int Speed;
-       public int SpeedMax;
-        public Car(string name, int payload, int power, int speed)
+        public int SpeedMax;
+        public Car(string name, int payload, int power, int speed, int speedMax)
         {
             Name = name;
             Payload = payload;
             Power = power;
             Speed = speed;
+            SpeedMax = speedMax;
             
         }
    
 
         public void PrintState() 
         {
-            Console.WriteLine("{0} is going {1} MPH.", Name, Speed);
-            Console.WriteLine("payload{0}kg is power{1}kW.", Payload, Power);
+            Console.WriteLine("{0} is going {1} MPH is speedMax{2} MPH", Name, Speed, SpeedMax);
+            Console.WriteLine("payload{0}kg is power{1}kW ", Payload, Power);
+            
      
         }
 
         public void Speedup(int delta)
         {
            Speed = Speed + delta;
-            if (Speed > 200)
+            if (Speed > SpeedMax)
             {
-                Speed = 200;
+                Speed = SpeedMax;
             }
             else if (Speed < 0)
             {
