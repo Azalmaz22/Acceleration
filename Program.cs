@@ -15,15 +15,18 @@ namespace Acceleration
 
 
 
-            Console.WriteLine("Enter you car name, payload, power");
+            Console.WriteLine("Enter you car name, payload, power,speed");
             
             var CarName = Console.ReadLine();
             var value = Console.ReadLine();
             var CarPayload = int.Parse(value);
             var value2 = Console.ReadLine();
             var CarPower = int.Parse(value2);
+            var value3 = Console.ReadLine();
+            var CarSpeed = int.Parse(value3);
+            
 
-            var myCar = new Car(CarName, CarPayload, CarPower);
+            var myCar = new Car(CarName, CarPayload, CarPower, CarSpeed);
          
            
 
@@ -38,16 +41,18 @@ namespace Acceleration
                 for (int i = 0; i <= 10; i++)
                 {
                     if (number < 0)
-                    {
-                        myCar.Speedup(-5);
+                    {                      
+                        myCar.Speedup(-5);                       
                         myCar.PrintState();
+                    
                     }
                     else if (number > 0)
-                    {
-                        myCar.Speedup(5);
+                    {                        
+                        myCar.Speedup(5);                       
                         myCar.PrintState();
-                        
+                       
                     }
+                
                 }
                 Console.WriteLine("Do you want to stop? yes/no");
                 var answer2 = Console.ReadLine();
@@ -59,7 +64,7 @@ namespace Acceleration
                 }
                 else if (answer2 == "yes")
                 {
-                    Console.WriteLine(CarName + "Speed = 0");
+                    Console.WriteLine(myCar.Name + "Speed = 0");
                     Console.WriteLine("Goodbye");
 
                 }
@@ -74,25 +79,37 @@ namespace Acceleration
         public int Payload;
         public int Power;
         public int Speed;
-       
-        public Car(string name, int payload, int power)
+       public int SpeedMax;
+        public Car(string name, int payload, int power, int speed)
         {
             Name = name;
             Payload = payload;
             Power = power;
+            Speed = speed;
+            
         }
-     
-     
+   
+
         public void PrintState() 
         {
             Console.WriteLine("{0} is going {1} MPH.", Name, Speed);
             Console.WriteLine("payload{0}kg is power{1}kW.", Payload, Power);
+     
         }
 
-        public void Speedup(int delta )
+        public void Speedup(int delta)
         {
-           Speed += delta;
-            
-        }   
+           Speed = Speed + delta;
+            if (Speed > 200)
+            {
+                Speed = 200;
+            }
+            else if (Speed < 0)
+            {
+                Speed = 0;
+            }
+        }
+      
+
     }
 }
